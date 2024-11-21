@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import InputForm from './components/InputForm';
+import ResponseDisplay from './components/ResponseDisplay';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [response, setResponse] = useState(null);
+
+    return (
+        <div className="App">
+            <h1>BFHL Frontend</h1>
+            <InputForm setResponse={setResponse} />
+            {response && <ResponseDisplay response={response} />}
+        </div>
+    );
 }
 
 export default App;
